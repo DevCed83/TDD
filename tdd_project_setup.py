@@ -3,6 +3,14 @@ import subprocess
 import sys
 from ./project_manager import project_manager.ProjectManager
 import unittest
+
+#Functional testing protocol 
+# This program aims at providing some more automation to Django project setup
+# User story : 
+# 	A user wants to start a Django project that includes an app.
+# 	He sits in front of his computer and enter the name of the project, the name of the app, and everything is taken care of for him. 
+
+
 # os.system(['powershell.exe', cd ..])
 class ProjectManagerTest(unittest.TestCase):
 	"""docstring for ProjectManagerTest"""
