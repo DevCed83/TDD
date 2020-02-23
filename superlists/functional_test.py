@@ -16,7 +16,7 @@ class FunctionalTest(unittest.TestCase):
 	#User wants to visit the website
 	def test_landing_page(self):
 		self.browser.get('http://localhost:8000')
-		self.assertIn('Django', self.browser.title)
+		self.assertIn('To-do lists', self.browser.title)
 		# self.fail('Complete this test before moving onto something else')
 
 if __name__ == '__main__':

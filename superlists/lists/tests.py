@@ -1,10 +1,21 @@
 from django.test import TestCase
 from django.urls import resolve
+from django.http import HttpRequest
 from lists.views import home_page
 
 # Create your tests here.
-class SmokeTest(TestCase):
+class HomePageTest(TestCase):
 	"""docstring for SmokeTest"""
-	def test_root_url_resolves_home_page(self):
+
+	def test_url_to_view(self):
 		found = resolve('/')
-		self.assertEqual(found.func, home_page)		
+		self.assertEqual(found.func, home_page)
+
+	def test_view_to_template(self):
+		request = HttpRequest()
+		response = home_page(request)
+		html = response.content.decode('utf-8')
+		self.assertTrue(html.startswith('<html>'))
+		self.assertIn('<title>To-do lists</title>', html)
+		self.assertTrue(html.endswith('</html>'))		
+
