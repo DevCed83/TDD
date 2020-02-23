@@ -1,0 +1,25 @@
+source : 
+pdf TDD with Python
+
+setup dev environment : 
+	setup repository
+	modify Powershell profile to direct to project folder,
+	add command 'pipenv shell' to create/run a virtual environment on powershell startup. 
+
+download geckodriver from https://github.com/mozilla/geckodriver/releases
+extract it to the Scripts folder of your python installation
+test : geckodriver --version
+install django and selenium
+
+human :
+create first functional test file
+	test if webdriver for Firefox, from selenium, displays title as "Django" @ localhost:8000
+
+machine:
+functional_test.py
+	webdriver.Firefox get method to simulate a http request @ param url
+
+test fails : you can write code.
+
+start django project called superlists
+run django server 

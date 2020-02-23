@@ -1,0 +1,3 @@
+algo : 
+si Test-Path $PROFILE alors
+	
