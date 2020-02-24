@@ -1,6 +1,6 @@
 source : 
 pdf TDD with Python
-
+Pre-requesite : Django architecture and basic inner workings (url -> views -> models & templates -> views -> html)
 setup dev environment : 
 	setup repository
 	modify Powershell profile to direct to project folder,
@@ -13,13 +13,27 @@ install django and selenium
 
 human :
 create first functional test file
-	test if webdriver for Firefox, from selenium, displays title as "Django" @ localhost:8000
+	test if selenium webdriver for Firefox, displays title as "Django" @ localhost:8000
 
 machine:
 functional_test.py
-	webdriver.Firefox get method to simulate a http request @ param url
-
+	use webdriver.Firefox.get('url'), to simulate a http request @ param url
+	assert
 test fails : you can write code.
 
 start django project called superlists
+command line from python ? 
+django-admin startproject <project_name>
+django-admin startproject superlists
 run django server 
+run test
+	Success !
+
+Functional tests will give birth to unit tests. Explore deeper into a functionality to make implementation details come out through unit testing. 
+
+User want to visit OUR website (To-do list application). 
+User ask for webpage, receive webpage, identifies the webpage through its tab name.
+User use browser to request the webpage url, and browser display the html code received.
+
+Create new django app
+

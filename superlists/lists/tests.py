@@ -16,6 +16,7 @@ class HomePageTest(TestCase):
 		response = home_page(request)
 		html = response.content.decode('utf-8')
 		self.assertTrue(html.startswith('<html>'))
-		self.assertIn('<title>To-do lists</title>', html)
-		self.assertTrue(html.endswith('</html>'))		
+		self.assertIn('<title>To-Do lists</title>', html)
+		self.assertTrue(html.endswith('</html>'))
+		# self.fail('Complete this test before moving onto something else')
 
