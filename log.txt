@@ -35,5 +35,6 @@ User want to visit OUR website (To-do list application).
 User ask for webpage, receive webpage, identifies the webpage through its tab name.
 User use browser to request the webpage url, and browser display the html code received.
 
+
 Create new django app
 
