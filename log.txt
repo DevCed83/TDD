@@ -38,3 +38,11 @@ User use browser to request the webpage url, and browser display the html code r
 
 Create new django app
 
+setup unit test : 
+	test request to server
+	server to function
+	function to template
+
+for each setup, Run test with python manage.py test
+(To be completed on second read)
+

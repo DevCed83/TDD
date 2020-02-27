@@ -26,10 +26,10 @@ class FunctionalTest(unittest.TestCase):
 		
 		# She is invited to enter a to-do item straight away
 		inputbox = self.browser.find_element_by_id('id_new_item')
-		# # self.assertEqual(
-		# # inputbox.get_attribute('placeholder'),
-		# # 'Enter a to-do item'
-		# # )
+		self.assertEqual(
+		inputbox.get_attribute('placeholder'),
+		'Enter a to-do item'
+		)
 		# # She types "Buy peacock feathers" into a text box (Edith's hobby
 		# # is tying fly-fishing lures)
 		# inputbox.send_keys('Buy peacock feathers')
@@ -48,7 +48,7 @@ class FunctionalTest(unittest.TestCase):
 		# self.fail('Finish the test!')
 		# # The page updates again, and now shows both items on her list
 		# # [...]
-		self.fail('Complete this test before moving onto something else')
+		self.fail('FLAAAAAME OF UDUUUUUUUUN !YOU SHALL NOT PASS ! ')
 
 
 
