@@ -1,6 +1,11 @@
 <html>
 	<title>To-Do lists</title>
 	<h1>To-Do</h1>
-	<input type="text" id="id_new_item" placeholder="Enter a to-do item">
-
+	<form method='post'>
+		<input type='text' id='id_new_item' placeholder='Enter a to-do item' name='item_text'>
+		{% csrf_token %}
+	</form>
+	<table id='id_list_table'>
+		<tr><td>{{ new_item_text }}</td></tr>
+	</table>
 </html>

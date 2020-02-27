@@ -2,25 +2,30 @@ from django.test import TestCase
 from django.urls import resolve
 from django.http import HttpRequest
 from django.template.loader import render_to_string
-from views import home_page
+from .views import home_page
 
 # Create your tests here.
 class HomePageTest(TestCase):
 	"""docstring for SmokeTest"""
 
-	def test_url_to_view(self):
-		found = resolve('/')
-		self.assertEqual(found.func, home_page)
+	#very first unit testing before leveraging the client attribute of the TestCase class
+	# def test_url_to_view(self):
+	# 	found = resolve('/')
+	# 	self.assertEqual(found.func, home_page)
 
-	def test_view_to_template(self):
+	def test_url_to_template(self):
 		response = self.client.get('/')
-		html = response.content.decode('utf-8')
-		self.assertTrue(html.startswith('<html>'))
-		self.assertIn('<title>To-Do lists</title>', html)
-		self.assertTrue(html.strip().endswith('</html>'))
+		# html = response.content.decode('utf-8')
+		# self.assertTrue(html.startswith('<html>'))
+		# self.assertIn('<title>To-Do lists</title>', html)
+		# self.assertTrue(html.strip().endswith('</html>'))
 		# expected_html = render_to_string('home.html')
 		# self.assertEqual(html, expected_html)
-		self.assertTemplateUsed(response, 'homes.html')
+		self.assertTemplateUsed(response, 'home.html')
 		# self.fail('Complete this test before moving onto something else')
 
+	def test_can_save_a_POST_request(self):
+		response = self.client.post('/', data={'item_text':'A new list item'})
+		self.assertIn('A new list item', response.content.decode())
+		self.assertTemplateUsed(response, 'home.html')
 	
