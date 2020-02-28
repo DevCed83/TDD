@@ -39,10 +39,33 @@ User use browser to request the webpage url, and browser display the html code r
 Create new django app
 
 setup unit test : 
-	test request to server
-	server to function
-	function to template
+	django server gets a request, and use a function in the library views to match the correct template. We test the url request gets a function associated, and the right one. 
+	functionnal context : test request url to server for processing :
+	server to function:
+		the django urls module provides with the resolve function. It will be used to simulate a request to a url set in parameter of the function and provide an object containing informations on the response, especially the func attribute that gives the name of the view function used to match the url to a template. if this function is reached, it means that the url was matched correctly on the server side
+		On refactoring, we'll encompass all the test in this context to a single one using the client attribute from the TestCase class
 
+	function to template
+		at first, use the django.http module to import the HttpRequest class. 
+	we check the response from the return of the hom_page function from the view module (it take a HttpRequest instance as a parameter). 
+	then check against constants (bits of text at the start, middle and end of the html document) 
 for each setup, Run test with python manage.py test
+
+
 (To be completed on second read)
 
+models creation : unit testing interaction with database
+scenario : we write 2 objects in the database, then collect all object from the database, test size of collection. 
+then we get each object from collection. test their content
+
+	instanciate a new model class.	# fail due to class not existing -> create a class
+	set its text to some string		# RAS
+	use its save method.			# fail due to no save method defined -> inheritance from django models Model 
+
+	2nd instantiation, text to other string, save. 
+	retrieve all model object from database in an array
+	test : size of the array is 2 -> assertEqual
+
+	get each element of array in a variable
+	test :	attribute text of first element is 'whatever string you check'	# fail due to migrations to be made, and default value provided at construction of TextField object 
+			attribute text of second element is 'other string you check'

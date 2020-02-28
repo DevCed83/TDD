@@ -3,29 +3,35 @@ from django.urls import resolve
 from django.http import HttpRequest
 from django.template.loader import render_to_string
 from .views import home_page
+from lists.models import Item
 
 # Create your tests here.
 class HomePageTest(TestCase):
-	"""docstring for SmokeTest"""
-
-	#very first unit testing before leveraging the client attribute of the TestCase class
-	# def test_url_to_view(self):
-	# 	found = resolve('/')
-	# 	self.assertEqual(found.func, home_page)
-
+	"""docstring for HomePageTest"""
 	def test_url_to_template(self):
 		response = self.client.get('/')
-		# html = response.content.decode('utf-8')
-		# self.assertTrue(html.startswith('<html>'))
-		# self.assertIn('<title>To-Do lists</title>', html)
-		# self.assertTrue(html.strip().endswith('</html>'))
-		# expected_html = render_to_string('home.html')
-		# self.assertEqual(html, expected_html)
 		self.assertTemplateUsed(response, 'home.html')
-		# self.fail('Complete this test before moving onto something else')
 
 	def test_can_save_a_POST_request(self):
 		response = self.client.post('/', data={'item_text':'A new list item'})
 		self.assertIn('A new list item', response.content.decode())
 		self.assertTemplateUsed(response, 'home.html')
 	
+class ItemModelTest(TestCase):
+	"""docstring for ItemModelTest"""
+	def test_saving_and_retrieving_items(self):
+		first_item = Item()
+		first_item.text = 'The first list item'
+		first_item.save()
+
+		second_item = Item()
+		second_item.text = 'Second item'
+		second_item.save()
+
+		saved_items = Item.objects.all()
+		self.assertEqual(saved_items.count(), 2)
+
+		first_saved_item = saved_items[0]
+		second_saved_item = saved_items[1]
+		self.assertEqual(first_saved_item.text, 'The first list item')
+		self.assertEqual(second_saved_item.text, 'Second item')
