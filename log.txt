@@ -11,7 +11,9 @@ extract it to the Scripts folder of your python installation
 test : geckodriver --version
 install django and selenium
 
-human :
+Start TDDing
+
+dev : I can manipulate a browser (selenium) and a server (django). Can I ?
 create first functional test file
 	test if selenium webdriver for Firefox, displays title as "Django" @ localhost:8000
 
