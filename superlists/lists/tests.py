@@ -4,7 +4,7 @@ from django.http import HttpRequest
 from django.template.loader import render_to_string
 from .views import home_page
 from lists.models import Item
-
+# p66 of the book
 # Create your tests here.
 class HomePageTest(TestCase):
 	"""docstring for HomePageTest"""
