@@ -57,8 +57,8 @@ class FunctionalTest(unittest.TestCase):
 		self.check_for_row_in_list_table('2:Use peackock feathers to make a fly')
 		# self.fail('Finish the test!')
 		# # The page updates again, and now shows both items on her list
-		# # [...]
 		self.fail('FLAAAAAME OF UDUUUUUUUUN ! YOU SHALL NOT PASS ! ')
+		# # [...]
 
 
 
