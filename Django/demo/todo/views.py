@@ -20,3 +20,9 @@ def add_item(request):
 		new_item.save()	
 	# forced refresh due to django use
 	return redirect('index')
+
+def complete_item(request, item_id):
+	item = TodoItem.objects.get(pk = item_id)
+	item.complete = False if item.complete else True
+	item.save()
+	return redirect('index')
