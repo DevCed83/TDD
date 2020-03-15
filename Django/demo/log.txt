@@ -1,0 +1,86 @@
+log 
+https://www.youtube.com/watch?v=phHM6glUURw
+
+basic django startup (env, django, project, app)
+
+app : add to INSTALLED_APPS in project settings.py
+
+migrate models (manage.py migrate)
+create superuser (manage.py createsuperuser) -> fill in the details. 
+
+run server (and login as superuser if want to for testing purposes)
+
+create à view : 
+	view is a function that render html code on request
+	def index (request):
+		return render (request, '<appname>/index.html') # second parameter is the name of the file in templates/<appname>
+
+contrast to MDN tuto and TDD approach : check for urls matching first, then worry about the view. 
+
+create urls matching : 
+	in project urls : specify '' is a urls that belongs to <appname>
+	error : no <appname>urls ressource -> create the urls.py file in the app folder
+	error : no patterns in file -> declare array urlspatterns 
+	no more error : problem = our template is not served
+	we need to serve it by calling the corresponding view function.
+
+On loading index.hmtl, MIME type error on javascript files -> correction in the registry, key class root, .js , content type : change from text/plain to text/javascript.
+Solution from flask issue on github : https://github.com/pallets/flask/issues/1045#issuecomment-42135330
+
+
+8:25 Create and use models 
+in the models file, create a class representing some concept on the page. Here, a todo item 
+register model into admin file. 
+log into admin account on the server.
+create dummy entries in the database from admin pannel using the model.
+modify view function to include context containing models data to use in template 
+modify template to use references to models. 
+here modify the list item tags to loop through the item list provided by the view as context
+
+15:25 Completion Visual
+in template, add test for value of complete attribute. Give cooresponding style accordingly. 
+
+17:46
+Add item to database
+Fill in the form
+Where is the form 
+Create a form file into your django app folder. It will contain models of your forms. 
+use django forms Form to modelise your form as a class
+change the view function to incorporate/link form model to template via context
+to set attributes of rendered html element, use a widget in the field initialisation. 
+
+Get the form working :
+form send a post request on completion -> get the url, url calls view, view uses model to access database, view prepare context, renders it with template, template uses model. 
+
+
+create a new view fucntion
+instantiate a form model object taking the http request post data as parameter. 
+decorate function with http require_POST decorator
+function returns a redirect to index (not a real single page app due to django only)
+append urls with new url leading to the new view function
+ 
+28:45
+switch item to completed 
+on click on the link, request is sent, url is captured, associated view is called, template is rendered with context. 
+To modify model, query database to get model object, or whole table access, see https://docs.djangoproject.com/en/3.0/topics/db/models/
+
+
+2nd Video //////////////////////////////
+////////////////////////////////////////
+////////////////////////////////////////
+https://www.youtube.com/watch?v=r9kT-jm136Q
+require pip install psycopg2
+start a django project, update settings to configure databse
+using postgresql (username password etc etc)
+migrate database
+explore DB to check for connection
+create an app
+edit settings to include newly created app into installed apps
+create a new model. this model represent a company. 
+field : pretty self explanatory, check documentation for nice quirks (decimal field)
+Once a model is created, make migrations, migrate database. 
+
+You can test your models in situ using django shell from manage.py
+You can now intereacts your code without running your app. -> TDD makes this redundant ? 
+
+

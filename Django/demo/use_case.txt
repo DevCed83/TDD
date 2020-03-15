@@ -1,0 +1,16 @@
+1 - Accueil du visiteur : 
+	Le visiteur est accueilli par une page web reçu depuis un serveur. 
+
+2 - Utilisation de la todo list
+	Le visiteur peut :
+		- ajouter une tache
+		- éditer une tâche comme complétée
+		- supprimer les tâches complétées
+		- supprimer toutes les tâches
+
+Ajouter une tâche :
+	Le visiteur clique sur le champs de saisie
+	Il decrit sa tache via une phrase.
+	il valide la saisie de la phrase. 
+	La liste se mets à jour et affiche la tache nouvelement créer.
+

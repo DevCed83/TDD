@@ -1,0 +1,8 @@
+functionnal test : 
+	open browser and naviguate to url
+	check for title of the page to match a given string
+	check for content of the page to match a certain class given a string
+	simulate user input and validation 
+	assert for presence of new element in list 
+
+

@@ -1,0 +1,37 @@
+framework : python 3.x, unittest, selenium
+to run the unittest framework, call to its main method in your test file. 
+
+Goal : setup the framework : 
+	Run tests : python functional_test.py
+		fail ! No test file to run
+	Minimum code : 
+		create functional_test.py file
+		pass !
+
+	Run tests : 
+		nothing : no entry point 
+	Minimum Code
+		add entry point
+		nothing 
+		add call to main method of unittest
+		error : unittest not defined
+		import library unittest
+		Pass : ran 0 test
+
+Goal : Run 1 test
+	create class FunctionalTest
+	0 test
+	inherit class from unittest TestCase
+	0 test
+	create test_<functionality> method
+	1 test
+
+Goal : test that server is up and running :
+	conception : find a way to access a browser. (selenium webdriver), send HTTP get request to test address. 
+	
+
+
+
+
+
+
