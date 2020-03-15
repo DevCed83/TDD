@@ -1,8 +1,25 @@
-functionnal test : 
-	open browser and naviguate to url
-	check for title of the page to match a given string
-	check for content of the page to match a certain class given a string
-	simulate user input and validation 
-	assert for presence of new element in list 
+A user has heard of the company/service provided through the website. 
+
+He desires to know more about us and what we offer to make his life easier. 
+	Or 
+As a returning customer, he desires to use our services again. 
+
+He goes to the website and land on the greating page. 
+	New prospect :	
+		get some information about what is offered. 
+		what is your problem ? 
+		what is the service offered ? 
+		how does it solve your problem ?
+		what do you need to subscribe ? 
+		how to subscribe ?
+		link to subscription form
+
+	Returning customer :
+		access your account.
+		use the service. 
 
 
+User get to his computer and turns it on.
+He opens his web browser. He types in the adress of the site. He gets the site displaying on his screen. 
+
+a web client sends an http request to the server. The server response contains the page to be displayed by the client on the user's screen. 

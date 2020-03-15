@@ -8,3 +8,7 @@ class TodoItem(models.Model):
 
 	def __str__(self):
 		return self.text
+
+class Event(models.Model):
+	nature = models.CharField(max_length = 40)
+	event = models.CharField(max_length = 40)
