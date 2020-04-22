@@ -1,0 +1,99 @@
+Django Tutorial
+from : 
+https://www.youtube.com/watch?v=e1IyzVyrLSU
+secondary source : https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Introduction
+
+
+Django Overview
+
+User ---> requests a page ---> gets a page
+Browser ---> HTTP ---> Django ---> HTML
+HTTP Request ---> Django-Url ---> View ---> Model ---> View ---> HTTP Response
+														 A
+											Template-----|
+
+Django Project Url ---> Django App Url ---> Django
+
+///////////////////////////////////////////////////////////////////
+///////////                                             ///////////
+///////////				Creation d'un site				///////////
+///////////                                             ///////////
+///////////////////////////////////////////////////////////////////
+
+installer python
+naviguer vers son dossier racine  de projet	
+installer pipenv 
+	pip install pipenv
+creer un environement virtuel (env)
+	pipenv shell
+installer django dans l'env
+	pipenv install django
+
+Demarrer un projet django (un projet = un site, une app = une fonctionnalité du site)
+	django-admin startproject <nom_du_projet>
+  ici :
+	django-admin startproject mon_site
+
+présentation des fichiers du projet <nom_du_projet>: 
+cf diagramme @ MDN 
+	settings.py:
+		reglages du projet : comprends les app installées et utilisées par le projet,
+		les middlewares, les infos sur les systemes de base de données, le chemin de la racine du projet ...
+
+	urls : les routes de vers chaque app du projet (les apps ont aussi leur fichier urls.py)
+
+naviguer dans le dossier <nom_du_projet>
+	cd chemin/vers/projet/
+
+Initialiser la base de données avec les données de projet par défaut
+	python manage.py migrate
+
+Lancer le serveur 
+	python manage.py runserver
+
+verifer dans le navigateur sur localhost (avec le port correspondant si nécessaire)
+
+
+///////////////////////////////////////////////////////////////////
+///////////                                             ///////////
+///////////				Creation d'une app				///////////
+///////////                                             ///////////
+///////////////////////////////////////////////////////////////////
+
+dans le dossier racine du projet django (le site)
+créer une app 
+	python manage.py startapp <nom_de_l_app>
+  ici : 
+  	python manage.py startapp create_account
+
+présentation des fichiers générés: 
+	
+	urls.py : definit le patron de correspondance url/vue.
+
+	models.py : 
+	voir : https://docs.djangoproject.com/en/3.0/topics/db/models/
+	contient la représentation sous forme de classe python (descendante de models.Model)des entités stockées dans la base de données. (ndlr : pour cqrs, stockage des structures de données command, event, state, query, reply ?) On utilise des objet du module models de django 
+
+	views.py : fonctions (1 par page) nommé après le dernier élément de l'url signé avec la requete, qui renvoit un rendu de la requete avec un patron html
+	
+	reste à creuser
+
+Inclure une app à son projet : 
+	settings.py : ajouter la chaine de caractère du nom de l'app dans la constante INSTALLED_APPS.
+	Faire la migration de base de données
+	urls.py : ajouter un appel de path vers l'url concerné qui inclut les urls de l'app 
+
+Ajouter une nouvelle page : 
+	préciser la correspondance url/vue
+	modéliser les données
+	definir la vue et le template de rendu
+
+Ajouter un model dans la base de données: 
+	décrire une classe du model concerné, qui hérite de Model du module models
+	cette classe ne possède pas d'attribut d'instance, uniquement des attributs de classe. Ces attributs sont des objets qui représente le champs de saisies utilisé pour donner une valeur à cet attributs. 
+
+	executer les commandes suivantes :
+		python manage.py migrate
+		python manage.py makemigrations <nom de l'app>
+		python manage.py sqlmigrate <nom de l'app> <version de la derniere migration>
+		python manage.py migrate

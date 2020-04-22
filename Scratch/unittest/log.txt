@@ -1,0 +1,20 @@
+Basic unittest setup for TDD in python : 
+
+TDD : write test, run test, test fails, write easiest code, run test, test passes, refactor code if need be. 
+
+How to create test with python unittest
+	in your python file : 
+		- import the unittest library
+		- write a class descending from unittest TestCase class. 
+		- write the entry point calling the unittest main function
+
+//////////////////
+import unittest
+class my_super_test(unittest.TestCase):
+	def setUp(self):
+		pass
+	def tearDown(self):
+		pass
+if __name__ == '__main__' : 
+	unittest.main()
+//////////////////

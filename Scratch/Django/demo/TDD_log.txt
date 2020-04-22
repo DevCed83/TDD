@@ -29,9 +29,3 @@ Goal : Run 1 test
 Goal : test that server is up and running :
 	conception : find a way to access a browser. (selenium webdriver), send HTTP get request to test address. 
 	
-
-
-
-
-
-

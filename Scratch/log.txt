@@ -1,6 +1,14 @@
 source : 
 pdf TDD with Python
-Pre-requesite : Django architecture and basic inner workings (url -> views -> models & templates -> views -> html)
+https://www.youtube.com/watch?v=_rLPDxpXIFc
+Pre-requesite : (p25)
+	- Python 3.6 or later 
+	- Git 
+	- Firefox
+	- Django 
+	- Selenium
+	- Django architecture and basic inner workings (url -> views -> models & templates -> views -> html)
+
 setup dev environment : 
 	setup repository
 	modify Powershell profile to direct to project folder,
@@ -11,7 +19,7 @@ extract it to the Scripts folder of your python installation
 test : geckodriver --version
 install django and selenium
 
-Start TDDing
+Start TDDing (with unittest for python3) :
 
 dev : I can manipulate a browser (selenium) and a server (django). Can I ?
 create first functional test file
@@ -41,7 +49,7 @@ User use browser to request the webpage url, and browser display the html code r
 Create new django app
 
 setup unit test : 
-	django server gets a request, and use a function in the library views to match the correct template. We test the url request gets a function associated, and the right one. 
+	django server gets a request, and use a function in the views library to match the correct template. We test the url request gets a function associated, and the right one. 
 	functionnal context : test request url to server for processing :
 	server to function:
 		the django urls module provides with the resolve function. It will be used to simulate a request to a url set in parameter of the function and provide an object containing informations on the response, especially the func attribute that gives the name of the view function used to match the url to a template. if this function is reached, it means that the url was matched correctly on the server side
@@ -49,7 +57,7 @@ setup unit test :
 
 	function to template
 		at first, use the django.http module to import the HttpRequest class. 
-	we check the response from the return of the hom_page function from the view module (it take a HttpRequest instance as a parameter). 
+	we check the response from the return of the home_page function from the view module (it take a HttpRequest instance as a parameter). 
 	then check against constants (bits of text at the start, middle and end of the html document) 
 for each setup, Run test with python manage.py test
 
@@ -62,7 +70,7 @@ then we get each object from collection. test their content
 
 	instanciate a new model class.	# fail due to class not existing -> create a class
 	set its text to some string		# RAS
-	use its save method.			# fail due to no save method defined -> inheritance from django models Model 
+	use its save method.			# fail due to no save method defined -> inheritance from django models Model class
 
 	2nd instantiation, text to other string, save. 
 	retrieve all model object from database in an array
